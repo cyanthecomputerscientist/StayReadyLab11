@@ -1,16 +1,15 @@
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class SpellCheckerTest {
-
-
-    public void Test()
+    @Test
+    public void test()
     {
-        App app = new App();
-        String input = "Hello!!!";
-        String actual = App.parse(input);
-        String expected = "Hello";
-    
         
-
+        String input = "Hello!!! Nurse!!!";
+        String actual = App.parse(input);
+        String expected = "hello nurse";
+        Assertions.assertEquals(expected, actual);
     }
+
 }

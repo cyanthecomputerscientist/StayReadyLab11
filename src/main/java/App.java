@@ -13,9 +13,11 @@ public class App
 
     public static String parse(String input)
     {
-        input = input.replaceAll("\\p{Punct}", " ");
-        input = input.toLowerCase();
-        return "";
+        String noPunct = "";
+        String lowercase = "";
+        noPunct = input.replaceAll("\\p{Punct}", "");
+        lowercase= noPunct.toLowerCase();
+        return lowercase;
     }
 
     public static HashSet<String> readInFile(String pathname)
