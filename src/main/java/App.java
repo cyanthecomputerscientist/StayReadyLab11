@@ -19,21 +19,49 @@ public class App
         lowercase= noPunct.toLowerCase();
         return lowercase;
     }
+    public static String [] arrayParse(String [] arry)
+    {
+        String [] parsearry = new String[arry.length];
+        for(int i = 0; i< arry.length; i++)
+        {
+            parsearry[i]= parse(arry[i]) + " ";
+        }
+
+        return parsearry;
+    }
+    public static String arraytoString(String [] arry)
+    {
+        String toString = "";
+        for (int i = 0; i < arry.length; i++) 
+        {
+            toString = toString + arry[i];
+        }
+        return toString;
+    }
 
     public static HashSet<String> readInFile(String pathname)
     {
         HashSet<String> hashSet = new HashSet<String>();
+        String [] words;
+        String [] parseWords;
+        String word;
         try {
             File file = new File(pathname);
             Scanner scan = new Scanner(file);
             while(scan.hasNextLine())
             {
-                hashSet.add(scan.nextLine());
+                String nextLine = scan.nextLine();
+                 words = nextLine.split(" "); 
+                 parseWords= arrayParse(words);
+                 word = " " +arraytoString(parseWords) + " ";
+                 hashSet.add(word);
+                 
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
             e.printStackTrace();
         }
+        
         return hashSet;
     }
 
@@ -44,6 +72,8 @@ public class App
 
         String pathname = "C:/Users/Dominique/Documents/Dev/StayReadyLab11/letter_from_gandhi.txt";
         fileToCheck = readInFile(pathname);
+        System.out.println(fileToCheck);
+
         //get file from user (check)
         //turn file into hash set (check)
         String pathname1 = "C:/Users/Dominique/Documents/Dev/StayReadyLab11/words_alpha.txt";
