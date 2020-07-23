@@ -57,6 +57,7 @@ public class App
                  hashSet.add(word);
                  
             }
+            scan.close();
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
             e.printStackTrace();
