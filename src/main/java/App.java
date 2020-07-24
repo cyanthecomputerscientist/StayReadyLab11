@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class App 
 {
@@ -73,12 +74,18 @@ public class App
 
         String pathname = "C:/Users/Dominique/Documents/Dev/StayReadyLab11/letter_from_gandhi.txt";
         fileToCheck = readInFile(pathname);
-        System.out.println(fileToCheck);
+        //System.out.println(fileToCheck);
 
         //get file from user (check)
         //turn file into hash set (check)
         String pathname1 = "C:/Users/Dominique/Documents/Dev/StayReadyLab11/words_alpha.txt";
         spellCheck = readInFile(pathname1);
+
+        SpellChecker spellChecker = new SpellChecker();
+        TreeSet<String> tree = spellChecker.spellCheck(fileToCheck);
+        System.out.println(tree);
+    
+
 
     }
 }
